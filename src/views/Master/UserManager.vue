@@ -200,7 +200,7 @@
         async fetchUsers() {
             try {
                 const token = sessionStorage.getItem('token'); 
-                const response = await axios.get('http://127.0.0.1:8000/api/users', {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 this.users = response.data;
@@ -212,7 +212,7 @@
         },
         async addUser() {
             try {
-                await axios.post('http://127.0.0.1:8000/api/users', this.newUser);
+                await axios.post(`${import.meta.env.VITE_API_URL}/api/users`, this.newUser);
                 this.fetchUsers();
                 this.showAddUserModal = false;
             } catch (error) {
@@ -224,7 +224,7 @@
           if (!confirm("Bạn có chắc chắn muốn xóa người dùng này?")) return;
           try {
               const token = sessionStorage.getItem('token');
-              await axios.delete(`http://127.0.0.1:8000/api/users/${id}`, {
+              await axios.delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
               });
               alert("Xóa thành công!");
@@ -236,7 +236,7 @@
         },
         async updateUser() {
             try {
-                await axios.put(`http://127.0.0.1:8000/api/users/${this.newUser.id}`, this.newUser);
+                await axios.put(`${import.meta.env.VITE_API_URL}/api/users/${this.newUser.id}`, this.newUser);
                 this.fetchUsers();
                 this.showAddUserModal = false;
             } catch (error) {
@@ -245,7 +245,7 @@
             }
         },
         async updateUserRole(user) {
-            await axios.put(`http://127.0.0.1:8000/api/users/${user.id}`, { role: user.role });
+            await axios.put(`${import.meta.env.VITE_API_URL}/api/users/${user.id}`, { role: user.role });
             this.fetchUsers();
         },
         editUser(user) {

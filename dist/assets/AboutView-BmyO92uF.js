@@ -1,0 +1,1 @@
+import{_ as n,c as a,a as s,o as t}from"./index-CydkFkW-.js";const o={};function r(c,e){return t(),a("main",null,e[0]||(e[0]=[s("h1",null,"This is User Management Page",-1)]))}const i=n(o,[["render",r]]);export{i as default};

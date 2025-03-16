@@ -129,7 +129,7 @@ export default {
     const fetchContacts = async () => {
         try {
             const token = sessionStorage.getItem("token");
-            const response = await axios.get("http://127.0.0.1:8000/api/contacts", {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/contacts`, {
             headers: { Authorization: `Bearer ${token}` }
             });
             console.log("Dữ liệu API trả về:", response.data); // In dữ liệu để kiểm tra
@@ -143,7 +143,7 @@ export default {
       if (confirm("Bạn có chắc chắn muốn xóa?")) {
         try {
           const token = sessionStorage.getItem("token");
-          await axios.delete(`http://127.0.0.1:8000/api/contacts/${id}`, {
+          await axios.delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           fetchContacts();
@@ -158,7 +158,7 @@ export default {
         try {
             const token = sessionStorage.getItem("token");
             const response = await axios.put(
-            `http://127.0.0.1:8000/api/contacts/${id}/mark-as-read`, 
+            `${import.meta.env.VITE_API_URL}/api/contacts/${id}/mark-as-read`, 
             {}, 
             { headers: { Authorization: `Bearer ${token}` } }
             );

@@ -65,7 +65,7 @@ export default {
     methods: {
         getVideoDetails() {
             // Lấy ID từ URL và gọi API
-            axios.get(`http://localhost:8000/api/lectures/${this.$route.params.id}`)
+            axios.get(`${import.meta.env.VITE_API_URL}/api/lectures/${this.$route.params.id}`)
                 .then(res => {
                     this.video = res.data.data;
                 })

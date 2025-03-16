@@ -41,7 +41,7 @@
         methods: {
         async saveData() {
             try {
-                const { data } = await axios.post("http://127.0.0.1:8000/api/login", student);
+                const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, student);
 
                 if (data.status) {
                     console.log("Login response:", data);
@@ -73,7 +73,7 @@
           });
   
           const saveData = () => {
-              axios.post("http://127.0.0.1:8000/api/login", student)
+              axios.post(`${import.meta.env.VITE_API_URL}/api/login`, student)
               .then(({ data }) => {
                   console.log(data);
                   alert("Login successfully");

@@ -65,7 +65,7 @@ export default {
                 return;
             }
             try {
-                const { data } = await axios.post("http://127.0.0.1:8000/api/register", {
+                const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/register`, {
                     firstName: student.firstName,
                     lastName: student.lastName,
                     name: student.firstName + " " + student.lastName,

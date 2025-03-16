@@ -210,7 +210,7 @@ export default {
     async fetchSubjects() {
       try {
         const token = sessionStorage.getItem('token');
-        const response = await axios.get('http://127.0.0.1:8000/api/subjects', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/subjects`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -234,7 +234,7 @@ export default {
           formData.append('thumbnail', this.newSubject.thumbnail);
         }
 
-        const response = await axios.post('http://127.0.0.1:8000/api/subjects', formData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/subjects`, formData, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'multipart/form-data'
@@ -258,7 +258,7 @@ export default {
         if (confirm("Bạn có chắc chắn muốn xóa môn học này không?")) {
             try {
                 const token = sessionStorage.getItem('token');
-                await axios.delete(`http://127.0.0.1:8000/api/subjects/${id}`, {
+                await axios.delete(`${import.meta.env.VITE_API_URL}/api/subjects/${id}`, {
                     headers: {
                     'Authorization': `Bearer ${token}`
                     }
@@ -284,7 +284,7 @@ export default {
           formData.append('thumbnail', this.newSubject.thumbnailPreview);
         }
 
-        await axios.post(`http://127.0.0.1:8000/api/subjects/${this.newSubject.id}?_method=PUT`, formData, {
+        await axios.post(`${import.meta.env.VITE_API_URL}/api/subjects/${this.newSubject.id}?_method=PUT`, formData, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'multipart/form-data'

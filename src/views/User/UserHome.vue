@@ -128,7 +128,7 @@ export default {
     },
     getLectures() {
       this.isLoading = true;
-      axios.get('http://localhost:8000/api/lectures')
+      axios.get(`${import.meta.env.VITE_API_URL}/api/lectures`)
         .then(res => {
           this.lectures = res.data.data;
           // Lấy danh sách các category duy nhất

@@ -156,7 +156,7 @@
                 }
             },
             getLectures() {
-                axios.get('http://localhost:8000/api/lectures')
+                axios.get(`${import.meta.env.VITE_API_URL}/api/lectures`)
                     .then(res => {
                         this.lectures = res.data.data;
                         this.isLoading = false;

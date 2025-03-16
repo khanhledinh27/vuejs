@@ -63,7 +63,7 @@ export default {
         async fetchCourses() {
             try {
                 const token = sessionStorage.getItem('token');
-                const response = await axios.get('http://localhost:8000/api/subjects', {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/subjects`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }); // Gọi API từ backend
                 this.courses = response.data;

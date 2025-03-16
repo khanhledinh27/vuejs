@@ -56,7 +56,7 @@ export default {
 
             var mythis = this;
 
-            axios.post('http://localhost:8000/api/lectures', this.model).then(res => {
+            axios.post(`${import.meta.env.VITE_API_URL}/api/lectures`, this.model).then(res => {
                 console.log(res);
                 alert(res.data.message);
 

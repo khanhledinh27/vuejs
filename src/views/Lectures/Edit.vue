@@ -62,7 +62,7 @@ export default {
     methods: {
         
         getLectureData(lectureId){
-            axios.get(`http://localhost:8000/api/lectures/${lectureId}/edit`).then(res => {
+            axios.get(`${import.meta.env.VITE_API_URL}/api/lectures/${lectureId}/edit`).then(res => {
                 console.log(res.data.data);
 
                 this.model = res.data.data;
@@ -79,7 +79,7 @@ export default {
 
             var mythis = this;
 
-            axios.put(`http://localhost:8000/api/lectures/${this.lectureId}/edit`, this.model).then(res => {
+            axios.put(`${import.meta.env.VITE_API_URL}/api/lectures/${this.lectureId}/edit`, this.model).then(res => {
                 console.log(res);
                 alert(res.data.message);
                 this.errorList = '';

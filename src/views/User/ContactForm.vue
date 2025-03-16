@@ -89,7 +89,7 @@
             
             const submitContact = async () => {
                 try {
-                    const response = await axios.post("http://127.0.0.1:8000/api/contacts", {
+                    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/contacts`, {
                         name: contact.value.name,
                         email: contact.value.email,
                         number: contact.value.number,

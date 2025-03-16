@@ -204,7 +204,7 @@ export default {
     },
     deleteLecture(lectureId) {
       if (confirm('Are you sure you want to delete this lecture?')) {
-        axios.delete(`http://localhost:8000/api/lectures/${lectureId}/delete`).then(res => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/api/lectures/${lectureId}/delete`).then(res => {
           alert(res.data.message);
           this.getLectures();
         }).catch(error => {
@@ -215,7 +215,7 @@ export default {
       }
     },
     getLectures() {
-      axios.get('http://localhost:8000/api/lectures')
+      axios.get(`${import.meta.env.VITE_API_URL}/api/lectures`)
         .then(res => {
           this.lectures = res.data.data;
           this.filteredLectures = this.lectures;
